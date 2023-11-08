@@ -17,6 +17,14 @@ export const CmdDesc = styled.span`
   color: ${({ theme }) => theme.colors?.text[200]};
   margin-bottom: 0.75rem;
 
+  a {
+      color: #ff9800;
+  }
+
+  a:visited {
+    color: #ff5722;
+  }
+
   @media (max-width: 550px) {
     display: block;
   }
