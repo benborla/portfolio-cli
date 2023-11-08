@@ -4,7 +4,7 @@
   "version": "1.3.1",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && cp ./public/cv.pdf ./dist/cv.pdf",
+    "build": "tsc && vite build && cp ./public/cv.pdf ./dist/assets/cv.pdf",
     "preview": "vite preview",
     "test:once": "vitest run",
     "test": "vitest",
