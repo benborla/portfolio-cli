@@ -9,8 +9,8 @@ const Gui: React.FC = () => {
   const currentCommand = _.split(history[0], " ");
 
   /* ===== check current command makes redirect ===== */
-  if (rerender && currentCommand[0] === "gui") {
-    window.open("https://satnaing.dev/", "_blank");
+  if (rerender && currentCommand[0] === "cv") {
+    window.open("https://benborla.dev/cv.pdf", "_blank");
   }
 
   return <span></span>;

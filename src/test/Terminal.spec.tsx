@@ -138,8 +138,8 @@ describe("Terminal Component", () => {
       window.open = vi.fn();
     });
 
-    it("should redirect to portfolio website when user type 'gui' cmd", async () => {
-      await user.type(terminalInput, "gui{enter}");
+    it("should redirect to portfolio website when user type 'cv' cmd", async () => {
+      await user.type(terminalInput, "cv{enter}");
       expect(window.open).toHaveBeenCalled();
       expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
         ""

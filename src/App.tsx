@@ -3,6 +3,7 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 import { useTheme } from "./hooks/useTheme";
 import GlobalStyle from "./components/styles/GlobalStyle";
 import Terminal from "./components/Terminal";
+import { BrowserRouter } from 'react-router-dom'
 
 export const themeContext = createContext<
   ((switchTheme: DefaultTheme) => void) | null
@@ -58,7 +59,9 @@ function App() {
         <ThemeProvider theme={selectedTheme}>
           <GlobalStyle />
           <themeContext.Provider value={themeSwitcher}>
-            <Terminal />
+            <BrowserRouter>
+              <Terminal />
+            </BrowserRouter>
           </themeContext.Provider>
         </ThemeProvider>
       )}

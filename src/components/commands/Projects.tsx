@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   checkRedirect,
   getCurrentCmdArry,
@@ -9,6 +10,7 @@ import {
   ProjectDesc,
   ProjectsIntro,
   ProjectTitle,
+  ProjectLink,
 } from "../styles/Projects.styled";
 import { termContext } from "../Terminal";
 import Usage from "../Usage";
@@ -21,34 +23,34 @@ const Projects: React.FC = () => {
 
   /* ===== check current command is redirect ===== */
   useEffect(() => {
-    if (checkRedirect(rerender, currentCommand, "projects")) {
-      projects.forEach(({ id, url }) => {
-        id === parseInt(arg[1]) && window.open(url, "_blank");
-      });
-    }
+    // if (checkRedirect(rerender, currentCommand, "projects")) {
+      // projects.forEach(({ id, url }) => {
+      //   id === parseInt(arg[1]) && window.open(url, "_blank");
+      // });
+    // }
   }, [arg, rerender, currentCommand]);
 
   /* ===== check arg is valid ===== */
   const checkArg = () =>
-    isArgInvalid(arg, "go", ["1", "2", "3", "4"]) ? (
+    isArgInvalid(arg, "go", ['1', '2', '3', '4', '5', '6', '7']) ? (
       <Usage cmd="projects" />
     ) : null;
 
-  return arg.length > 0 || arg.length > 2 ? (
+  return arg.length > 0 || arg.length > 3 ? (
     checkArg()
   ) : (
     <div data-testid="projects">
       <ProjectsIntro>
-        “Talk is cheap. Show me the code”? I got you. <br />
-        Here are some of my projects you shouldn't misss
+          Here are the lists of personal projects that I created.
       </ProjectsIntro>
-      {projects.map(({ id, title, desc }) => (
+      {projects.map(({ id, title, desc, url }) => (
         <ProjectContainer key={id}>
           <ProjectTitle>{`${id}. ${title}`}</ProjectTitle>
           <ProjectDesc>{desc}</ProjectDesc>
+          <Link to={url} target="_blank" style={ProjectLink}>{url}</Link>
         </ProjectContainer>
       ))}
-      <Usage cmd="projects" marginY />
+      {/* <Usage cmd="projects" marginY /> */}
     </div>
   );
 };
@@ -56,27 +58,45 @@ const Projects: React.FC = () => {
 const projects = [
   {
     id: 1,
-    title: "Sat Naing's Blog",
-    desc: "My personal blog where I can write down my thoughts and experiences.",
-    url: "https://satnaing.dev/blog/",
+    title: "Personal Blog Site (WIP)",
+    desc: "This is my personal space where I elaborate and speak aloud my thoughts",
+    url: "https://blog.benborla.dev",
   },
   {
     id: 2,
-    title: "Haru Fashion",
-    desc: "An ecommerce web application where users can browse various products and make purchases.",
-    url: "https://haru-fashion.vercel.app/",
+    title: "Multi-tenancy Sales Tracker",
+    desc: "This is a personal project where I track the sales and inventory of my small business",
+    url: "https://wmlsolutions.com",
   },
   {
     id: 3,
-    title: "Haru API",
-    desc: "A RESTful API developed for the Haru fashion ecommerce project.",
-    url: "https://satnaing.github.io/haru-api/",
+    title: "Tantra Gratis",
+    desc: "A game portal website allows players to view the game status, top-up, and player rankings.",
+    url: "https://www.tantragratis.com/",
   },
   {
     id: 4,
-    title: "AstroPaper Blog Theme",
-    desc: "A minimal, accessible and SEO-friendly Astro blog theme.",
-    url: "https://astro-paper.pages.dev/",
+    title: "Zeta Publishing",
+    desc: "A simple book publishing services and book store",
+    url: "https://www.zetapublishing.com/",
+  },
+  {
+    id: 5,
+    title: "Go Remote Staff",
+    desc: "A VA outsourcing platform based in AU",
+    url: "https://goremotestaff.com/",
+  },
+  {
+    id: 6,
+    title: "RA Microsite (Decommissioned)",
+    desc: "A multi-tenancy platform that records taxes and company documents based in UK",
+    url: "https://ra-microsite.com.uk/",
+  },
+  {
+    id: 7,
+    title: "City FileShare (Decommissioned)",
+    desc: "A platform for AWS S3 with GUI and role system",
+    url: "https://cityfileshare.com.uk/",
   },
 ];
 

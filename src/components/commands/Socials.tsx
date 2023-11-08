@@ -9,6 +9,7 @@ import {
 } from "../../utils/funcs";
 import { termContext } from "../Terminal";
 import Usage from "../Usage";
+import { Link } from "react-router-dom";
 
 const Socials: React.FC = () => {
   const { arg, history, rerender } = useContext(termContext);
@@ -40,10 +41,10 @@ const Socials: React.FC = () => {
         <CmdList key={title}>
           <Cmd>{`${id}. ${title}`}</Cmd>
           {generateTabs(tab)}
-          <CmdDesc>- <a href="#" target="_blank">{url}</a></CmdDesc>
+          <CmdDesc> - <Link to={url} target="_blank">{url}</Link></CmdDesc>
         </CmdList>
       ))}
-      <Usage cmd="socials" marginY />
+      {/* <Usage cmd="socials" marginY /> */}
     </HelpWrapper>
   );
 };
