@@ -10,7 +10,7 @@ const Email: React.FC = () => {
   const currentCommand = _.split(history[0], " ");
 
   if (rerender && currentCommand[0] === "email" && currentCommand.length <= 1) {
-    window.open("mailto:" + "benborla@icloud.com", "_blank");
+    window.open("mailto:" + "me@benborla.dev", "_blank");
   }
 
   return (

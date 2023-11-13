@@ -74,6 +74,12 @@ const socials = [
     url: "https://instagram.com/benborla",
     tab: 0,
   },
+  {
+    id: 5,
+    title: "Email",
+    url: "me@benborla.dev",
+    tab: 0,
+  },
 ];
 
 export default Socials;
