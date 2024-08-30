@@ -1,0 +1,17 @@
+services:
+  app:
+    image: benborla/react-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  node_modules:
